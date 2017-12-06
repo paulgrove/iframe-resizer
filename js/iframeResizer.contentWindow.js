@@ -799,7 +799,9 @@
 			},
 
 			max: function getMaxHeight(){
-				return Math.max.apply(null,getAllMeasurements(getHeight));
+				var results = getAllMeasurements(getHeight);
+				results.push(getTaggedElements('bottom','data-iframe-height'));
+				return Math.max.apply(null,results);
 			},
 
 			min: function getMinHeight(){
